@@ -3,7 +3,7 @@ Before we can run this, we need to create a playbook which will call the OpenShi
 ```
 cat <<EOM >apply.yml
 ---
-- name: Deploy {{ target }} 
+- name: Deploy {{ target }}
     hosts: "{{ target }}"
     vars:
       ruby_namespace: "ruby-example"
@@ -13,9 +13,9 @@ cat <<EOM >apply.yml
 EOM
 ```{{execute}}
 
-You can see this `{{ target }}` variable being called here. It's purpose is to allow you to run specific portions of the inventory if you want. 
+You can see this `{{ target }}` variable being called here. It's purpose is to allow you to run specific portions of the inventory if you want.
 
-Now we are ready to run!
+Our project is all set, but we still need to install Applier in order to run it.
 
 First pull down the ansible-galaxy requirements into the `roles` directory:
 
@@ -25,7 +25,7 @@ Then start the run:
 
 ``ansible-playbook -i inventory apply.yml -e "target=bootstrap,application"``{{execute}}
 
-Once the Ansible run completes, go over to the `Dashboard` tab in this environment. Login with the credentials: 
+Once the Ansible run completes, go over to the `Dashboard` tab in this environment. Login with the credentials:
 
 ```
 user: developer

@@ -2,12 +2,12 @@ To get started, let us login to the OpenShift cluster by running the following:
 
 ``oc login -u developer -p developer``{{execute}}
 
-For this tutorial we are going to create everything from scratch. In the future, in the future you can use some of the following resources as starting points:
+For this tutorial we are going to create a new _infrastructure as code_ project from scratch. In the future,  you can use some of the following resources as starting points:
 
 * https://github.com/rht-labs/labs-ci-cd
 * https://github.com/redhat-cop/containers-quickstarts
 
-To begin, let's create a new directory and go into it.
+To begin, let's create a new directory and cd into it.
 
 ``mkdir sample-applier; cd sample-applier``{{execute}}
 
@@ -16,11 +16,11 @@ cat <<EOM >requirements.yml
 - name: openshift-applier
     scm: git
     src: https://github.com/redhat-cop/openshift-applier
-    version: v3.9.0
+    version: v2.0.0
 EOM
 ```{{execute}}
 
-To complete the generic project structure, we want to create the rest of these:
+A generic directory structure for an Applier project looks like this:
 
 ```
 .
@@ -36,7 +36,7 @@ To complete the generic project structure, we want to create the rest of these:
 ├── requirements.yml
 └── templates
 ```
-
+Let's go ahead and create our project scaffolding. 
 ```
 mkdir -p inventory/{group_vars,host_vars} params templates
 touch inventory/group_vars/all.yml inventory/host_vars/{application.yml,bootstrap.yml} inventory/hosts

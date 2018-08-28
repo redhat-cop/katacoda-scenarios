@@ -17,11 +17,11 @@ mkdir templates/app
 oc export template ruby-example-template -n openshift -o yaml > templates/app/ruby.yml
 ```{{execute}}
 
-To checkout what the template looks like, run the following:
+To check out what the template looks like, run the following:
 
 ``cat templates/app/ruby.yml``{{execute}}
 
-You'll notice at the end of the template, there is a parameters section with only parameter: `BUILD_NAMESPACE`. We'll want to create a parameter file to set this value.
+You'll notice at the end of the template, there is a parameters section with only one parameter: `BUILD_NAMESPACE`. We'll want to create a parameter file to set this value.
 
 ```
 mkdir params/ruby
@@ -49,7 +49,7 @@ openshift_cluster_content:
 EOM
 ```{{execute}}
 
-Awesome, we're almost ready to run this! First we need to create the OpenShift project/namespace where the application will run.
+Awesome, we're almost ready to run this! Before we do, we need to create the OpenShift project/namespace where the application will run.
 
 ```
 mkdir params/projectrequests
@@ -68,7 +68,7 @@ openshift_cluster_content:
     content:
     - name: dev
       template: "https://raw.githubusercontent.com/redhat-cop/cluster-lifecycle/master/files/projectrequest/template.yml"
-      template_action: create
+      action: create
       params: "{{ playbook_dir }}/params/projectrequests/project"
       tags:
       - projectrequests
