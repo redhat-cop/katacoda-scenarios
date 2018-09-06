@@ -46,6 +46,7 @@ openshift_cluster_content:
       namespace: "{{ ruby_namespace }}"
       tags:
       - app
+      ignore_unknown_parameters: false
 EOM
 ```{{execute}}
 
@@ -73,6 +74,7 @@ openshift_cluster_content:
       tags:
       - projectrequests
       - projectrequests-dev
+      ignore_unknown_parameters: false
 EOM
 ```{{execute}}
 
