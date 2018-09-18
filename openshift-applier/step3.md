@@ -1,37 +1,19 @@
-Before we can run this, we need to create a playbook which will call the OpenShift-Applier.
+There are parameters that match up with each Template to then create a list of OpenShift objects
+
+Our `ruby-example-template` only has one parameter: `NAMESPACE_BUILD`. 
+
+Let's create a parameter file to set this value:
 
 ```
-cat <<EOM >apply.yml
----
-- name: Deploy {{ target }}
-    hosts: "{{ target }}"
-    vars:
-      ruby_namespace: "ruby-example"
-    tasks:
-      - include_role:
-          name: openshift-applier/roles/openshift-applier
-EOM
+echo 'NAMESPACE_BUILD=ruby-example' > params/ruby/build
 ```{{execute}}
 
-You can see this `{{ target }}` variable being called here. It's purpose is to allow you to run specific portions of the inventory if you want.
 
-Our project is all set, but we still need to install Applier in order to run it.
-
-First pull down the ansible-galaxy requirements into the `roles` directory:
-
-``ansible-galaxy install -r requirements.yml -p roles``{{execute}}
-
-Then start the run:
-
-``ansible-playbook -i inventory apply.yml -e "target=bootstrap,application"``{{execute}}
-
-Once the Ansible run completes, go over to the `Dashboard` tab in this environment. Login with the credentials:
+Now we'll create the parameters for the Project template:
 
 ```
-user: developer
-pass: developer
-```
-
-You should see the `Ruby Example` project. Click on that and you should see the application you just deployed.
-
-Once the deployment is completed, you can go to the route url seen above the ruby-ex service and see the live application.
+cat <<EOM >params/projectrequests/project
+NAMESPACE=ruby-example
+NAMESPACE_DISPLAY_NAME="Ruby Example"
+EOM
+```{{execute}}
