@@ -5,7 +5,7 @@ Our `ruby-example-template` only has one parameter: `NAMESPACE_BUILD`.
 Let's create a parameter file to set this value:
 
 ```
-echo 'NAMESPACE_BUILD=ruby-example' > params/ruby/build
+echo 'BUILD_NAMESPACE=ruby-example' > params/ruby/build
 ```{{execute}}
 
 
