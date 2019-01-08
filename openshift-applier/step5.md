@@ -2,7 +2,7 @@ Now we also need to make sure our ruby template goes into our inventory as well:
 
 ```
 echo "- object: ruby-components
-    content:
+  content:
     - name: ruby-ex
       template: \"{{ inventory_dir }}/../templates/app/ruby.yml\"
       params: \"{{ inventory_dir }}/../params/ruby/build\"
@@ -23,7 +23,7 @@ ansible_connection: local
 
 openshift_cluster_content:
 - object: projects
-    content:
+  content:
     - name: dev
       template: "https://raw.githubusercontent.com/redhat-cop/cluster-lifecycle/master/files/projectrequest/template.yml"
       action: create
@@ -32,7 +32,7 @@ openshift_cluster_content:
       - projectrequests
       - projectrequests-dev
 - object: ruby-components
-    content:
+  content:
     - name: ruby-ex
       template: "{{ inventory_dir }}/../templates/app/ruby.yml"
       params: "{{ inventory_dir }}/../params/ruby/build"
