@@ -19,7 +19,7 @@ ansible_connection: local
 
 openshift_cluster_content:
 - object: projects
-    content:
+  content:
     - name: dev
       template: "{{ inventory_dir }}/../templates/project/projectrequest-template.yml"
       params: "{{ inventory_dir }}/../params/projectrequests/project"
