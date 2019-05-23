@@ -2,6 +2,15 @@ To get started, let us login to the OpenShift cluster by running the following:
 
 ``oc login -u developer -p developer``{{execute}}
 
+Now let's verify that you're logged in as a developer _note: due to a temporary Katakoda bug, you may have to issue the oc login command twice_
+
+``oc whoami``{{execute}}
+
+Output should be as follows:
+```
+developer
+```
+
 To begin, let's create a new directory and go into it.
 
 ``mkdir sample-applier; cd sample-applier``{{execute}}

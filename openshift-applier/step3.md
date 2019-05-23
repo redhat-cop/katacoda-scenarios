@@ -1,11 +1,11 @@
 There are parameters that match up with each Template to then create a list of OpenShift objects
 
-Our `ruby-example-template` only has one parameter: `NAMESPACE_BUILD`. 
+Our `ruby-example-template` only has one parameter: `BUILD_NAMESPACE`. 
 
 Let's create a parameter file to set this value:
 
 ```
-echo 'NAMESPACE_BUILD=ruby-example' > params/ruby/build
+echo 'BUILD_NAMESPACE=ruby-example' > params/ruby/build
 ```{{execute}}
 
 
