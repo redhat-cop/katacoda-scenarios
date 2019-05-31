@@ -33,5 +33,5 @@ EOM
 
 The `openshift-applier` can also pull templates down from raw GitHub URLs in addition to using local files!
 
-To learn more about the `openshift_cluster_content` object, go [here](https://github.com/redhat-cop/openshift-applier/blob/v2.0.9/roles/openshift-applier/README.md)!
+To learn more about the `openshift_cluster_content` object, go [here](https://github.com/redhat-cop/openshift-applier/blob/v2.0.10/roles/openshift-applier/README.md)!
 
