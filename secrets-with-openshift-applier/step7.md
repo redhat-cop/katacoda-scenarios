@@ -1,6 +1,6 @@
 ## Username and Password are great, but let's encrypt a ssh private key!
 
-Let's update the `group_vars/all.yml` to look like:
+Let's update the `inventory/group_vars/all.yml` to look like:
 
 ```
 - object: secrets
